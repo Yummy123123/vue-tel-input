@@ -232,7 +232,8 @@ export default {
       if (this.onlyCountries.length) {
         return this.onlyCountries
           .map((iso) => this.allCountries.find((c) => c.iso2 === iso.toUpperCase()))
-          .filter(Boolean);
+          .filter(Boolean)
+		  .sort((a,b) => { return a.name.localeCompare(b.name)});
       }
 
       if (this.ignoredCountries.length) {
